@@ -15,5 +15,5 @@ resource "aws_elasticache_cluster" "this" {
 resource "aws_elasticache_subnet_group" "this" {
   name        = "${var.git}-sg-${random_string.identifier.result}"
   description = "private subnets for the elastic cache cluster"
-  subnet_ids  = ["${split(",", var.subnet_ids)}"]
+  subnet_ids  = ["${var.subnet_ids}"]
 }
