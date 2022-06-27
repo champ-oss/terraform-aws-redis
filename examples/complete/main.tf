@@ -19,7 +19,7 @@ resource "aws_security_group" "test" {
 }
 
 module "this" {
-  source = "../../"
+  source                   = "../../"
   vpc_id                   = module.vpc.vpc_id
   source_security_group_id = aws_security_group.test.id
   subnet_ids               = module.vpc.private_subnets_ids
