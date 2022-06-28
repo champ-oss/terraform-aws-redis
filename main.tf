@@ -7,7 +7,7 @@ locals {
 }
 
 resource "random_string" "identifier" {
-  length  = 10
+  length  = 5
   special = false
   upper   = false
   lower   = true

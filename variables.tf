@@ -19,7 +19,7 @@ variable "engine_version" {
 variable "parameter_group_name" {
   description = "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_cluster#parameter_group_name"
   type        = string
-  default     = "default.redis6.x"
+  default     = null
 }
 
 variable "node_type" {
@@ -61,4 +61,10 @@ variable "subnet_ids" {
   description = "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_subnet_group#subnet_ids"
   default     = []
   type        = list(string)
+}
+
+variable "redis_family" {
+  description = "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_parameter_group#family"
+  default     = "redis6.x"
+  type        = string
 }
