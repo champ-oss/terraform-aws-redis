@@ -10,6 +10,19 @@ resource "aws_elasticache_cluster" "this" {
   subnet_group_name    = aws_elasticache_subnet_group.this.name
   security_group_ids   = ["${aws_security_group.this.id}"]
   tags                 = merge(local.tags, var.tags)
+
+  log_delivery_configuration {
+    destination      = aws_cloudwatch_log_group.redis_slow.name
+    destination_type = "cloudwatch-logs"
+    log_format       = "json"
+    log_type         = "slow-log"
+  }
+  log_delivery_configuration {
+    destination      = aws_cloudwatch_log_group.redis_engine.name
+    destination_type = "cloudwatch-logs"
+    log_format       = "json"
+    log_type         = "engine-log"
+  }
 }
 
 resource "aws_elasticache_subnet_group" "this" {
