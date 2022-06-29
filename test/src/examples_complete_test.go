@@ -5,7 +5,6 @@ import (
 	"testing"
 )
 
-// TestExamplesComplete tests a typical deployment of this module
 func TestExamplesComplete(t *testing.T) {
 	t.Parallel()
 
