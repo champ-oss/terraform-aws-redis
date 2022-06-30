@@ -13,3 +13,13 @@ resource "random_string" "identifier" {
   lower   = true
   number  = true
 }
+
+# redis password
+resource "random_password" "password" {
+  length  = 32
+  special = false
+
+  lifecycle {
+    create_before_destroy = true
+  }
+}
