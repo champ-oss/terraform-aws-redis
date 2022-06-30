@@ -11,31 +11,31 @@ variable "tags" {
 }
 
 variable "engine_version" {
-  description = "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_cluster#engine_version"
+  description = "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_replication_group#engine_version"
   type        = string
   default     = "6.2"
 }
 
 variable "node_type" {
-  description = "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_cluster#node_type"
+  description = "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_replication_group#node_type"
   type        = string
   default     = "cache.t2.micro"
 }
 
 variable "maintenance_window" {
-  description = "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_cluster#maintenance_window"
+  description = "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_replication_group#maintenance_window"
   type        = string
   default     = "sun:07:00-sun:08:00"
 }
 
-variable "num_cache_nodes" {
-  description = "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_cluster#num_cache_nodes"
+variable "num_cache_clusters" {
+  description = "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_replication_group#num_cache_clusters"
   type        = number
-  default     = 1
+  default     = 2 # must be greater than 1. Must be enabled for Redis
 }
 
 variable "redis_port" {
-  description = "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_cluster#port"
+  description = "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_replication_group#port"
   type        = number
   default     = 6379
 }
@@ -61,4 +61,28 @@ variable "redis_family" {
   description = "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_parameter_group#family"
   default     = "redis6.x"
   type        = string
+}
+
+variable "transit_encryption_enabled" {
+  description = "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_replication_group#transit_encryption_enabled"
+  type        = bool
+  default     = true
+}
+
+variable "automatic_failover_enabled" {
+  description = "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_replication_group#automatic_failover_enabled"
+  type        = bool
+  default     = true
+}
+
+variable "snapshot_retention_limit" {
+  description = "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_replication_group#snapshot_retention_limit"
+  type        = number
+  default     = 0
+}
+
+variable "at_rest_encryption_enabled" {
+  description = "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_replication_group#at_rest_encryption_enabled"
+  type        = bool
+  default     = true
 }
