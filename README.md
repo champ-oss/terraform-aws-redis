@@ -28,8 +28,6 @@ Summary: terraform module for aws redis
 
 * look at examples/complete/main.tf for usage
 
-## Project Status
-Project is: _in_progress_ 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
@@ -90,3 +88,7 @@ No modules.
 | <a name="output_redis_port"></a> [redis\_port](#output\_redis\_port) | redis port |
 | <a name="output_redis_primary_endpoint_address"></a> [redis\_primary\_endpoint\_address](#output\_redis\_primary\_endpoint\_address) | redis endpoint |
 <!-- END_TF_DOCS -->
+
+
+## Project Status
+Project is: _in_progress_ 
