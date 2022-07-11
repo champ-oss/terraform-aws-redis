@@ -9,7 +9,6 @@ Summary: terraform module for aws redis
 * [General Info](#general-information)
 * [Technologies Used](#technologies-used)
 * [Features](#Features)
-* [Terraform Input](#terraform)
 * [Usage](#usage)
 * [Project Status](#project-status)
 
@@ -29,15 +28,11 @@ Summary: terraform module for aws redis
 * automatic failover enabled
 * auth_token generated for redis password
 
-## terraform
+## usage
 
 <!-- BEGIN_TF_DOCS -->
 
 <!-- END_TF_DOCS -->
-
-## Usage
-
-* look at examples/complete/main.tf for usage
 
 ## Project Status
 Project is: _in_progress_ 
