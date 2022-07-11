@@ -9,6 +9,7 @@ Summary: terraform module for aws redis
 * [General Info](#general-information)
 * [Technologies Used](#technologies-used)
 * [Features](#Features)
+* [Terraform Input](#terraform)
 * [Usage](#usage)
 * [Project Status](#project-status)
 
@@ -23,6 +24,16 @@ Summary: terraform module for aws redis
 
 * deploy redis to given subnet group
 * security group created for ingress connection
+* at rest encryption enabled
+* transit encryption enabled
+* automatic failover enabled
+* auth_token generated for redis password
+
+## terraform
+
+<!-- BEGIN_TF_DOCS -->
+
+<!-- END_TF_DOCS -->
 
 ## Usage
 
