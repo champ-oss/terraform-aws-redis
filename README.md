@@ -10,6 +10,12 @@ Summary: terraform module for aws redis
 * [Technologies Used](#technologies-used)
 * [Features](#Features)
 * [Usage](#usage)
+* [Requirements](#Requirements)
+* [Providers](#Providers)
+* [Modules](#Modules)
+* [Resources](#Resources)
+* [Inputs](#Inputs)
+* [Outputs](#Outputs)
 * [Project Status](#project-status)
 
 ## General Information
