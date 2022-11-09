@@ -2,7 +2,7 @@ module github.com/champ-oss/terraform-module-template
 
 go 1.17
 
-require github.com/gruntwork-io/terratest v0.40.24
+require github.com/gruntwork-io/terratest v0.41.0
 
 require (
 	cloud.google.com/go v0.83.0 // indirect
