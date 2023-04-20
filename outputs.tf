@@ -9,7 +9,7 @@ output "redis_arn" {
 }
 
 output "redis_default_password" {
-  value       = random_password.password.result
+  value       = aws_elasticache_replication_group.this.auth_token
   sensitive   = true
   description = "redis password"
 }
