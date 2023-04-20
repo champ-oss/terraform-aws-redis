@@ -2,10 +2,6 @@ provider "aws" {
   region = "us-east-1"
 }
 
-locals {
-  git = "terraform-aws-redis"
-}
-
 data "aws_vpcs" "this" {
   tags = {
     purpose = "vega"
@@ -26,7 +22,7 @@ data "aws_subnets" "private" {
 
 resource "aws_security_group" "test" {
   name_prefix = "test-redis-"
-  vpc_id      = module.vpc.vpc_id
+  vpc_id      = data.aws_vpcs.this.ids[0]
 }
 
 module "this" {
