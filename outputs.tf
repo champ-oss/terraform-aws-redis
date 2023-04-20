@@ -1,6 +1,6 @@
-output "redis_primary_endpoint_address" {
-  value       = aws_elasticache_replication_group.this.primary_endpoint_address
-  description = "redis endpoint"
+output "redis_cluster_endpoint" {
+  value       = aws_elasticache_replication_group.this.configuration_endpoint_address
+  description = "redis cluster endpoint"
 }
 
 output "redis_arn" {
@@ -9,7 +9,7 @@ output "redis_arn" {
 }
 
 output "redis_default_password" {
-  value       = random_password.password.result
+  value       = aws_elasticache_replication_group.this.auth_token
   sensitive   = true
   description = "redis password"
 }

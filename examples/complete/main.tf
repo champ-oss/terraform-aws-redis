@@ -1,26 +1,33 @@
 provider "aws" {
-  region = "us-east-1"
+  region = "us-east-2"
 }
 
-locals {
-  git = "terraform-aws-redis"
+data "aws_vpcs" "this" {
+  tags = {
+    purpose = "vega"
+  }
 }
 
-module "vpc" {
-  source                   = "github.com/champ-oss/terraform-aws-vpc?ref=v1.0.48-5b9b752"
-  name                     = local.git
-  availability_zones_count = 2
-  retention_in_days        = 1
+data "aws_subnets" "private" {
+  tags = {
+    purpose = "vega"
+    Type    = "Private"
+  }
+
+  filter {
+    name   = "vpc-id"
+    values = [data.aws_vpcs.this.ids[0]]
+  }
 }
 
 resource "aws_security_group" "test" {
-  name_prefix = "test-mq-"
-  vpc_id      = module.vpc.vpc_id
+  name_prefix = "test-redis-"
+  vpc_id      = data.aws_vpcs.this.ids[0]
 }
 
 module "this" {
   source                   = "../../"
-  vpc_id                   = module.vpc.vpc_id
+  vpc_id                   = data.aws_vpcs.this.ids[0]
   source_security_group_id = aws_security_group.test.id
-  subnet_ids               = module.vpc.private_subnets_ids
+  subnet_ids               = data.aws_subnets.private.ids
 }
