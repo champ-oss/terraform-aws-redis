@@ -18,3 +18,9 @@ output "redis_port" {
   value       = aws_elasticache_replication_group.this.port
   description = "redis port"
 }
+
+output "password_ssm_name" {
+  description = "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter#name"
+  value       = aws_ssm_parameter.this.name
+}
+
