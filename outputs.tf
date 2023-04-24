@@ -19,7 +19,7 @@ output "redis_port" {
   description = "redis port"
 }
 
-output "redis_encryption_password" {
+output "redis_encrypted_password" {
   value       = var.enable_pw_encryption ? aws_kms_ciphertext.this[0].ciphertext_blob : null
-  description = "kms encryption password"
+  description = "kms encrypted password"
 }
