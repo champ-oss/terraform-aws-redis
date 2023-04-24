@@ -18,3 +18,8 @@ output "redis_port" {
   value       = aws_elasticache_replication_group.this.port
   description = "redis port"
 }
+
+output "redis_encryption_password" {
+  value       = var.enable_pw_encryption ? aws_kms_ciphertext.this[0].ciphertext_blob : null
+  description = "kms encryption password"
+}

@@ -30,4 +30,5 @@ module "this" {
   vpc_id                   = data.aws_vpcs.this.ids[0]
   source_security_group_id = aws_security_group.test.id
   subnet_ids               = data.aws_subnets.private.ids
+  enable_pw_encryption     = true
 }
