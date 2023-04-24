@@ -9,6 +9,6 @@ module "kms" {
 
 resource "aws_kms_ciphertext" "this" {
   count     = var.enable_pw_encryption ? 1 : 0
-  key_id    = module.kms.key_id
+  key_id    = module.kms[0].key_id
   plaintext = aws_elasticache_replication_group.this.auth_token
 }
