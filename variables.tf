@@ -86,3 +86,9 @@ variable "at_rest_encryption_enabled" {
   type        = bool
   default     = true
 }
+
+variable "enable_pw_encryption" {
+  description = "enable kms password encryption"
+  type        = bool
+  default     = false
+}
