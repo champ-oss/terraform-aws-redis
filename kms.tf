@@ -3,8 +3,9 @@ module "kms" {
   count           = var.enable_pw_encryption ? 1 : 0
   source          = "github.com/champ-oss/terraform-aws-kms.git?ref=v1.0.30-44f94bf"
   git             = var.git
-  name            = "alias/${var.git}-lambda"
+  name            = "alias/redis-${random_string.identifier.result}"
   account_actions = []
+  tags            = merge(local.tags, var.tags)
 }
 
 resource "aws_kms_ciphertext" "this" {
