@@ -1,3 +1,14 @@
+resource "aws_elasticache_parameter_group" "this" {
+  name        = "${var.git}-redis-cluster-${random_string.identifier.result}"
+  family      = var.redis_family
+  description = "Redis default cluster parameter group"
+
+  parameter {
+    name  = "cluster-enabled"
+    value = "yes"
+  }
+}
+
 resource "aws_elasticache_replication_group" "this" {
   replication_group_description = "Redis Replication Group"
   replication_group_id          = "redis-${var.git}"
@@ -35,15 +46,4 @@ resource "aws_elasticache_subnet_group" "this" {
   name        = "${var.git}-sg-${random_string.identifier.result}"
   description = "private subnets for the elastic cache cluster"
   subnet_ids  = var.subnet_ids
-}
-
-resource "aws_elasticache_parameter_group" "this" {
-  name        = "${var.git}-reddis-cluster-${random_string.identifier.result}"
-  family      = var.redis_family
-  description = "Redis default cluster parameter group"
-
-  parameter {
-    name  = "cluster-enabled"
-    value = "yes"
-  }
 }
