@@ -11,7 +11,7 @@ resource "aws_elasticache_parameter_group" "this" {
 
 resource "aws_elasticache_replication_group" "this" {
   replication_group_description = "Redis Replication Group"
-  replication_group_id          = "redis-${var.git}"
+  replication_group_id          = "redis-${var.git}-${random_string.identifier.result}"
   engine                        = "redis"
   engine_version                = var.engine_version
   maintenance_window            = var.maintenance_window
