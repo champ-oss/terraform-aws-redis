@@ -7,6 +7,7 @@ resource "aws_elasticache_replication_group" "this" {
   node_type                     = var.node_type
   num_cache_clusters            = var.num_cache_clusters
   port                          = var.redis_port
+  parameter_group_name          = var.parameter_group_name
   subnet_group_name             = aws_elasticache_subnet_group.this.name
   automatic_failover_enabled    = var.automatic_failover_enabled
   transit_encryption_enabled    = var.transit_encryption_enabled
