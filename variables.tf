@@ -13,7 +13,7 @@ variable "tags" {
 variable "engine_version" {
   description = "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_replication_group#engine_version"
   type        = string
-  default     = "6.2"
+  default     = "6.x"
 }
 
 variable "node_type" {
@@ -55,12 +55,6 @@ variable "subnet_ids" {
   description = "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_subnet_group#subnet_ids"
   default     = []
   type        = list(string)
-}
-
-variable "redis_family" {
-  description = "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_parameter_group#family"
-  default     = "redis6.x"
-  type        = string
 }
 
 variable "transit_encryption_enabled" {
