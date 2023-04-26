@@ -16,12 +16,6 @@ variable "engine_version" {
   default     = "6.x"
 }
 
-variable "parameter_group_name" {
-  description = "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_replication_group#engine_version"
-  type        = string
-  default     = "default.redis6.x.cluster.on"
-}
-
 variable "node_type" {
   description = "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_replication_group#node_type"
   type        = string
