@@ -13,7 +13,13 @@ variable "tags" {
 variable "engine_version" {
   description = "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_replication_group#engine_version"
   type        = string
-  default     = "6.2"
+  default     = "7.x"
+}
+
+variable "parameter_group_name" {
+  description = "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_replication_group#engine_version"
+  type        = string
+  default     = "default.redis7.cluster.on"
 }
 
 variable "node_type" {

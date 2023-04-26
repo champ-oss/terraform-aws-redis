@@ -1,14 +1,3 @@
-resource "aws_elasticache_parameter_group" "this" {
-  name        = "${var.git}-redis-cluster-${random_string.identifier.result}"
-  family      = var.redis_family
-  description = "Redis default cluster parameter group"
-
-  parameter {
-    name  = "cluster-enabled"
-    value = "yes"
-  }
-}
-
 resource "aws_elasticache_replication_group" "this" {
   replication_group_description = "Redis Replication Group"
   replication_group_id          = "redis-${var.git}-${random_string.identifier.result}"
@@ -18,7 +7,7 @@ resource "aws_elasticache_replication_group" "this" {
   node_type                     = var.node_type
   num_cache_clusters            = var.num_cache_clusters
   port                          = var.redis_port
-  parameter_group_name          = aws_elasticache_parameter_group.this.name
+  parameter_group_name          = var.parameter_group_name
   subnet_group_name             = aws_elasticache_subnet_group.this.name
   automatic_failover_enabled    = var.automatic_failover_enabled
   transit_encryption_enabled    = var.transit_encryption_enabled
