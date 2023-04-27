@@ -6,6 +6,7 @@ resource "aws_elasticache_replication_group" "this" {
   maintenance_window            = var.maintenance_window
   node_type                     = var.node_type
   num_cache_clusters            = var.num_cache_clusters
+  parameter_group_name          = "default.redis6.x.cluster.on"
   port                          = var.redis_port
   subnet_group_name             = aws_elasticache_subnet_group.this.name
   automatic_failover_enabled    = var.automatic_failover_enabled
