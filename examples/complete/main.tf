@@ -34,7 +34,7 @@ module "this" {
 }
 
 resource "aws_elasticache_parameter_group" "this" {
-  name        = "${var.git}-${random_string.identifier.result}"
+  name        = "${var.git}-${random_string.this.result}"
   family      = "redis6.x"
   description = "Redis default cluster parameter group"
 
@@ -44,7 +44,7 @@ resource "aws_elasticache_parameter_group" "this" {
   }
 }
 
-resource "random_string" "identifier" {
+resource "random_string" "this" {
   length  = 5
   special = false
   upper   = false
