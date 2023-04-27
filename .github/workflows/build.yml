@@ -27,7 +27,6 @@ jobs:
         uses: docker/build-push-action@v3.0.0
         with:
           context: "{{defaultContext}}:examples/complete/python"
-          file: "{{defaultContext}}:examples/complete/python/Dockerfile"
           push: true
           tags: |
             ${{ env.REPO }}:${{ env.SHA }}
