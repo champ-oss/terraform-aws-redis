@@ -33,10 +33,10 @@ module "this" {
 }
 
 module "lambda" {
-  source                         = "github.com/champ-oss/terraform-aws-lambda.git?ref=v1.0.115-77403a9"
-  git                            = "terraform-aws-redis-client"
-  name                           = "redis-client-${random_string.identifier.result}"
-  description                    = "redis client lambda function"
+  source              = "github.com/champ-oss/terraform-aws-lambda.git?ref=v1.0.115-77403a9"
+  git                 = "terraform-aws-redis-client"
+  name                = "redis-client-${random_string.identifier.result}"
+  description         = "redis client lambda function"
   enable_cw_event     = true
   schedule_expression = "rate(1 minutes)"
   enable_vpc          = true
@@ -68,7 +68,7 @@ resource "random_string" "identifier" {
 }
 
 module "hash" {
-source   = "github.com/champ-oss/terraform-git-hash.git?ref=v1.0.12-fc3bb87"
-path     = "${path.module}/.."
-fallback = ""
+  source   = "github.com/champ-oss/terraform-git-hash.git?ref=v1.0.12-fc3bb87"
+  path     = "${path.module}/.."
+  fallback = ""
 }
