@@ -38,7 +38,7 @@ module "lambda" {
   name                = "redis-client-${random_string.identifier.result}"
   description         = "redis client lambda function"
   enable_cw_event     = true
-  schedule_expression = "rate(1 minutes)"
+  schedule_expression = "rate(1 minute)"
   enable_vpc          = true
   private_subnet_ids  = data.aws_subnets.private.ids
   sync_image          = true
