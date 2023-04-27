@@ -34,7 +34,7 @@ module "this" {
 }
 
 resource "aws_elasticache_parameter_group" "this" {
-  name        = "${var.git}-${random_string.this.result}"
+  name        = "test-redis-${random_string.this.result}"
   family      = "redis6.x"
   description = "Redis default cluster parameter group"
 
