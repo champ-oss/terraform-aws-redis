@@ -86,3 +86,9 @@ variable "enable_pw_encryption" {
   type        = bool
   default     = false
 }
+
+variable "parameter_group_name" {
+  description = "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_replication_group#parameter_group_name"
+  default     = null
+  type        = string
+}
