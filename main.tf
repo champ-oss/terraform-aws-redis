@@ -23,3 +23,11 @@ resource "random_password" "password" {
     create_before_destroy = true
   }
 }
+
+resource "random_string" "identifier" {
+  length  = 5
+  special = false
+  upper   = false
+  lower   = true
+  number  = true
+}
