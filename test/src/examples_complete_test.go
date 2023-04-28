@@ -66,9 +66,8 @@ func TestExamplesComplete(t *testing.T) {
 		TerraformDir:  "../../examples/complete",
 		BackendConfig: map[string]interface{}{},
 		EnvVars:       map[string]string{},
-		Vars: map[string]interface{}{},
+		Vars:          map[string]interface{}{},
 	}
-	defer terraform.Destroy(t, terraformOptions)
 	terraform.InitAndApplyAndIdempotent(t, terraformOptions)
 	time.Sleep(90 * time.Second)
 
