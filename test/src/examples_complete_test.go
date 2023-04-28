@@ -1,16 +1,16 @@
 package test
 
 import (
+	"fmt"
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/cloudwatchlogs"
 	"github.com/gruntwork-io/terratest/modules/logger"
 	"github.com/gruntwork-io/terratest/modules/terraform"
-	"os"
+	"github.com/stretchr/testify/assert"
 	"strings"
 	"testing"
 	"time"
-	"fmt"
 )
 
 // GetAWSSession Logs in to AWS and return a session
@@ -60,16 +60,22 @@ func GetLogStream(session *session.Session, region string, logGroup string) *str
 
 func TestExamplesComplete(t *testing.T) {
 	t.Parallel()
+	region := "us-east-2"
 
 	terraformOptions := &terraform.Options{
 		TerraformDir:  "../../examples/complete",
 		BackendConfig: map[string]interface{}{},
 		EnvVars:       map[string]string{},
-		Vars:          map[string]interface{}{},
+		Vars: map[string]interface{}{
+			"region": region,
+		},
 	}
 	defer terraform.Destroy(t, terraformOptions)
 	terraform.InitAndApplyAndIdempotent(t, terraformOptions)
 	time.Sleep(90 * time.Second)
+
+	logger.Log(t, "Creating AWS Session")
+	awsSess := GetAWSSession()
 
 	// get lambda tf output logGroupName
 	cloudwatchLogGroup := terraform.Output(t, terraformOptions, "cloudwatch_log_group")
