@@ -66,9 +66,7 @@ func TestExamplesComplete(t *testing.T) {
 		TerraformDir:  "../../examples/complete",
 		BackendConfig: map[string]interface{}{},
 		EnvVars:       map[string]string{},
-		Vars: map[string]interface{}{
-			"region": region,
-		},
+		Vars: map[string]interface{}{},
 	}
 	defer terraform.Destroy(t, terraformOptions)
 	terraform.InitAndApplyAndIdempotent(t, terraformOptions)
