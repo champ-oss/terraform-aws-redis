@@ -63,10 +63,13 @@ func TestExamplesComplete(t *testing.T) {
 	region := "us-east-2"
 
 	terraformOptions := &terraform.Options{
-		TerraformDir:  "../../examples/complete",
-		BackendConfig: map[string]interface{}{},
-		EnvVars:       map[string]string{},
-		Vars:          map[string]interface{}{},
+		TerraformDir: "../../examples/complete",
+		BackendConfig: map[string]interface{}{
+			"bucket": os.Getenv("TF_STATE_BUCKET"),
+			"key":    "terraform-aws-redis",
+		},
+		EnvVars: map[string]string{},
+		Vars:    map[string]interface{}{},
 	}
 	terraform.InitAndApplyAndIdempotent(t, terraformOptions)
 	time.Sleep(90 * time.Second)
