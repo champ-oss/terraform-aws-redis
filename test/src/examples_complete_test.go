@@ -10,6 +10,7 @@ import (
 	"strings"
 	"testing"
 	"time"
+	"fmt"
 )
 
 // GetAWSSession Logs in to AWS and return a session
