@@ -14,7 +14,7 @@ resource "random_string" "identifier" {
   number  = true
 }
 
-# redis password
+# redis password, 32 is max
 resource "random_password" "password" {
   length  = 32
   special = false

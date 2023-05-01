@@ -23,3 +23,9 @@ output "redis_encrypted_password" {
   value       = var.enable_pw_encryption ? aws_kms_ciphertext.this[0].ciphertext_blob : null
   description = "kms encrypted password"
 }
+
+output "password_ssm_name" {
+  description = "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter#name"
+  value       = aws_ssm_parameter.this.name
+}
+

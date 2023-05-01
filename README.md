@@ -29,6 +29,7 @@ Summary: terraform module for aws redis
 
 * deploy redis to given subnet group
 * security group created for ingress connection
+* includes redis client for testing
 
 ## Usage
 
