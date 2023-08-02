@@ -79,7 +79,7 @@ module "lambda" {
 }
 
 module "hash" {
-  source   = "github.com/champ-oss/terraform-git-hash.git?ref=v1.0.12-fc3bb87"
+  source   = "github.com/champ-oss/terraform-git-hash.git?ref=v1.0.13-ffd1b7d"
   path     = "${path.module}/../.."
   fallback = ""
 }
