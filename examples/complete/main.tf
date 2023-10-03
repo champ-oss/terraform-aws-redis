@@ -2,10 +2,6 @@ provider "aws" {
   region = "us-east-2"
 }
 
-terraform {
-  backend "s3" {}
-}
-
 data "aws_vpcs" "this" {
   tags = {
     purpose = "vega"
