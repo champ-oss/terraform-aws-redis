@@ -1,5 +1,4 @@
 resource "aws_elasticache_replication_group" "this" {
-  replication_group_description = "Redis Replication Group"
   replication_group_id          = substr("${var.git}-${random_string.identifier.result}", 0, 40) # 40 character max length
   engine                        = "redis"
   engine_version                = var.engine_version
