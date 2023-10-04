@@ -2,10 +2,6 @@ provider "aws" {
   region = "us-east-2"
 }
 
-terraform {
-  backend "s3" {}
-}
-
 data "aws_vpcs" "this" {
   tags = {
     purpose = "vega"
@@ -82,4 +78,9 @@ module "hash" {
   source   = "github.com/champ-oss/terraform-git-hash.git?ref=v1.0.12-fc3bb87"
   path     = "${path.module}/../.."
   fallback = ""
+}
+
+output "cloudwatch_log_group" {
+  description = "alarm name output"
+  value       = module.lambda.cloudwatch_log_group
 }
