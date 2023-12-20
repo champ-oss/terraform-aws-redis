@@ -53,7 +53,7 @@ resource "random_string" "this" {
 }
 
 module "lambda" {
-  source              = "github.com/champ-oss/terraform-aws-lambda.git?ref=v1.0.133-c385eba"
+  source              = "github.com/champ-oss/terraform-aws-lambda.git?ref=v1.0.135-3a6e821"
   git                 = "terraform-aws-redis-client"
   name                = "redis-client-${random_string.this.result}"
   description         = "redis client lambda function"
@@ -75,7 +75,7 @@ module "lambda" {
 }
 
 module "hash" {
-  source   = "github.com/champ-oss/terraform-git-hash.git?ref=v1.0.13-ffd1b7d"
+  source   = "github.com/champ-oss/terraform-git-hash.git?ref=v1.0.14-02da677"
   path     = "${path.module}/../.."
   fallback = ""
 }
