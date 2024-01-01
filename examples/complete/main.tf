@@ -53,7 +53,7 @@ resource "random_string" "this" {
 }
 
 module "lambda" {
-  source              = "github.com/champ-oss/terraform-aws-lambda.git?ref=v1.0.135-3a6e821"
+  source              = "github.com/champ-oss/terraform-aws-lambda.git?ref=v1.0.136-380511e"
   git                 = "terraform-aws-redis-client"
   name                = "redis-client-${random_string.this.result}"
   description         = "redis client lambda function"
