@@ -1,7 +1,7 @@
 # only used to encrypt and decrypt redis password
 module "kms" {
   count           = var.enable_pw_encryption ? 1 : 0
-  source          = "github.com/champ-oss/terraform-aws-kms.git?ref=v1.0.33-cb3be31"
+  source          = "github.com/champ-oss/terraform-aws-kms.git?ref=v1.0.34-a5b529e"
   git             = var.git
   name            = "alias/redis-${random_string.identifier.result}"
   account_actions = []
